@@ -3,7 +3,11 @@
 </script>
 
 <template>
-  <el-button type="success">elementPlus</el-button>
+  <el-button type="primary">elementPlus</el-button>
+
+  <el-button type="success">success</el-button>
+  <el-button type="warning">warning</el-button>
+  <el-button type="danger">danger</el-button>
 </template>
 
 <style scoped>
