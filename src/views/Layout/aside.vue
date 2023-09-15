@@ -1,0 +1,55 @@
+<template>
+    <el-menu default-active="/" class="el-menu" router>
+        <el-menu-item index="/">
+            <img src="@/assets/images/iecubelogo.svg" alt="">
+        </el-menu-item>
+        <el-sub-menu index="/">
+            <template #title>
+                <el-icon>
+                    <Document />
+                </el-icon>
+                <span>内容管理</span>
+            </template>
+            <!-- <el-menu-item index="/">内容预览</el-menu-item> -->
+            <el-menu-item index="/">案例管理</el-menu-item>
+            <el-menu-item index="/npoints">知识点管理</el-menu-item>
+            <el-menu-item index="/design">教学设计</el-menu-item>
+            <el-menu-item index="/task">任务管理</el-menu-item>
+            <el-menu-item index="/guidance">案例指导</el-menu-item>
+            <el-menu-item index="/pkg">案例资源包</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/system">
+            <template #title>
+                <el-icon>
+                    <Document />
+                </el-icon>
+                <span>系统管理</span>
+            </template>
+            <el-menu-item index="/direction">方向分类</el-menu-item>
+
+        </el-sub-menu>
+        <el-sub-menu index="/user">
+            <template #title>
+                <el-icon>
+                    <UserFilled />
+                </el-icon>
+                <span>用户管理</span>
+            </template>
+            <el-menu-item index="/index">用户管理</el-menu-item>
+
+        </el-sub-menu>
+        <el-menu-item index="" disabled>
+            <el-icon>
+                <Menu />
+            </el-icon>
+            <span>项目管理</span>
+        </el-menu-item>
+    </el-menu>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive, toRefs, onMounted } from 'vue'
+
+</script>
+<style scoped lang="less"></style>
