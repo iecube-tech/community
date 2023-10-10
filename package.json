@@ -16,6 +16,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.4.0",
+    "ckeditor5-custom-build": "file:ckeditor5-39.0.2",
     "element-plus": "^2.3.5",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",

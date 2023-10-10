@@ -17,7 +17,8 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: () => import('@/views/Layout/NotRefreshMain.vue'),
+          name: 'h',
+          component: () => import('@/views/Layout/RefreshMain.vue'),
           children: [
             {
               path: '',
@@ -37,28 +38,67 @@ const router = createRouter({
         },
         {
           path: '/npoints',
-          component: () => import('@/views/Layout/NotRefreshMain.vue'),
+          component: () => import('@/views/Layout/RefreshMain.vue'),
           children: [
             {
               path: '',
               name: "npoints",
+              redirect: '/npoints/cases',
               component: () => import('@/views/content/2-npoints/index.vue'),
               meta: { title: '知识点管理' },
               children: [
+                {
+                  path: 'cases',
+                  name: 'npointsCaseList',
+                  component: () => import('@/views/content/2-npoints/caseList/index.vue'),
+                  meta: { title: '案列列表' }
+                },
+                {
+                  path: 'cases/modules',
+                  name: 'npointModuleList',
+                  component: () => import('@/views/content/2-npoints/moduleList/index.vue'),
+                  meta: { title: '功能模块列表', parentName: 'npointsCaseList' }
+                },
+                {
+                  path: 'cases/modules/edit/',
+                  name: 'npointModuleAdd',
+                  component: () => import('@/views/content/2-npoints/moduleEdit/index.vue'),
+                  meta: { title: '功能模块添加', parentName: 'npointModuleList' }
+                },
+                {
+                  path: 'cases/modules/edit/:moduleId',
+                  name: 'npointModuleEdit',
+                  component: () => import('@/views/content/2-npoints/moduleEdit/index.vue'),
+                  meta: { title: '功能模块编辑', parentName: 'npointModuleList' }
+                },
+                {
+                  path: 'cases/concepts',
+                  name: 'npointConcepteList',
+                  component: () => import('@/views/content/2-npoints/conceptList/index.vue'),
+                  meta: { title: '基础概念列表', parentName: 'npointsCaseList' }
+
+                }
               ]
             },
           ]
         },
         {
           path: '/design',
-          component: () => import('@/views/Layout/NotRefreshMain.vue'),
+          component: () => import('@/views/Layout/RefreshMain.vue'),
           children: [
             {
               path: '',
               name: "design",
+              redirect: '/design/cases',
               component: () => import('@/views/content/3-design/index.vue'),
               meta: { title: '教学设计' },
               children: [
+                {
+                  path: 'cases',
+                  name: 'designCaseList',
+                  component: () => import('@/views/content/3-design/contents/index.vue'),
+                  meta: { title: '案例列表' }
+                }
               ]
             },
           ]
@@ -175,6 +215,82 @@ const router = createRouter({
           ]
         },
 
+      ]
+    },
+    {
+      path: '/client',
+      name: 'client',
+      redirect: '/client/school',
+      component: layout,
+      meta: { title: '客户管理' },
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Layout/RefreshMain.vue'),
+          children: [
+            {
+              path: '',
+              name: 'SchoolManage',
+              redirect: '/client/school/list',
+              component: () => import('@/views/client/schoole/index.vue'),
+              meta: { title: '学校管理' },
+              children: [
+                {
+                  path: 'school/list',
+                  name: 'SchoolList',
+                  component: () => import('@/views/client/schoole/schoolList/index.vue'),
+                  meta: { title: '学校列表' },
+                },
+                {
+                  path: 'school/add',
+                  name: 'SchoolAdd',
+                  component: () => import('@/views/client/schoole/schoolAdd/index.vue'),
+                  meta: { title: '添加学校', parentName: 'SchoolList' }
+                },
+                {
+                  path: 'school/list/:schoolID',
+                  name: 'SchoolDetail',
+                  component: () => import('@/views/client/schoole/schoolDetail/index.vue'),
+                  meta: { title: '学校信息', parentName: 'SchoolList' },
+                }
+              ]
+            },
+            {
+              path: 'teacher',
+              name: 'TeacherManage',
+              redirect: '/client/teacher/list',
+              component: () => import('@/views/client/teacher/index.vue'),
+              meta: { title: '教师管理' },
+              children: [
+                {
+                  path: 'list',
+                  name: 'TeacherList',
+                  component: () => import('@/views/client/teacher/teacherList/index.vue'),
+                  meta: { title: '教师列表' }
+                },
+                {
+                  path: 'list/add',
+                  name: 'TeacherAdd',
+                  component: () => import('@/views/client/teacher/teacherAdd/index.vue'),
+                  meta: { title: '添加教师', parentName: 'TeacherList' }
+                },
+                {
+                  path: 'list/:teacherId/modify',
+                  name: 'TeacherModify',
+                  component: () => import('@/views/client/teacher/teacherModify/index.vue'),
+                  meta: { title: '教师信息修改', parentName: 'TeacherList' }
+                },
+                {
+                  path: 'list/:teacherId/accredit',
+                  name: 'TeacherCaseAccredit',
+                  component: () => import('@/views/client/teacher/teacherCaseAccredit/index.vue'),
+                  meta: { title: '教师案例授权', parentName: 'TeacherList' }
+                }
+
+              ]
+            }
+          ]
+        }
       ]
     },
     {

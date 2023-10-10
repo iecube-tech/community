@@ -37,7 +37,17 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
+    include: [
+      '@kangc/v-md-editor/lib/theme/vuepress.js',
+      'ckeditor5-custom-build/build/ckeditor',
+    ],
+  },
+  build: {
+    commonjsOptions: {
+      include: [
+        "ckeditor5-custom-build/build/ckeditor",
+      ],
+    },
   },
   server: {
     // host: '0.0.0.0',
@@ -48,12 +58,12 @@ export default defineConfig({
     proxy: {
       '/dev-api': {
         // 后台地址
-        target: 'http://192.168.1.36:8088/',
+        target: 'http://192.168.1.8:8088/',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/dev-api/, '')
       },
       '/local-resource': {
-        target: 'http://192.168.1.36:8088/files/',
+        target: 'http://192.168.1.8:8088/files/',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/local-resource/, '')
       }

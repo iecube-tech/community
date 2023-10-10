@@ -52,7 +52,7 @@ const key = computed(() => {
 }
 
 .el-menu {
-    background-color: #f2faff;
+    /* background-color: #f2faff; */
     height: 100%;
 }
 </style>

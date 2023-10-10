@@ -77,6 +77,20 @@ const loginRules = reactive<FormRules>({
             }, trigger: 'blur'
         },
     ],
+    // [
+    //     { required: true, message: '请输入邮箱账号', trigger: 'blur' },
+    //     {
+    //         validator: function (rule, value, callback) {
+    //             const regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //             // if (/^1[34578]\d{9}$/.test(value) == false) {
+    //             if (regEmail.test(value) == false) {
+    //                 callback(new Error("请输入正确的邮箱号"));
+    //             } else {
+    //                 callback();
+    //             }
+    //         }, trigger: 'blur'
+    //     },
+    // ],
     password: [
         { required: true, min: 6, max: 16, message: 'Length should be 8 to 16', trigger: 'blur' }
     ],
