@@ -54,12 +54,16 @@
 
 
 
-        <el-menu-item index="" disabled>
-            <el-icon>
-                <Menu />
-            </el-icon>
-            <span>项目管理</span>
-        </el-menu-item>
+        <el-sub-menu index="/analysis">
+            <template #title>
+                <el-icon>
+                    <Menu />
+                </el-icon>
+                <span>项目数据</span>
+            </template>
+            <el-menu-item index="/analysis">案例数据</el-menu-item>
+            <el-menu-item index="">教师项目</el-menu-item>
+        </el-sub-menu>
     </el-menu>
 </template>
 

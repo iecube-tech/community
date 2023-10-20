@@ -308,6 +308,43 @@ const router = createRouter({
       ]
     },
     {
+      path: '/analysis',
+      name: 'DataAnalysis',
+      redirect: '/analysis/case',
+      component: layout,
+      meta: { title: '数据管理' },
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Layout/RefreshMain.vue'),
+          children: [
+            {
+              path: '',
+              name: 'CaseDataAnalysis',
+              redirect: '/analysis/case/list',
+              component: () => import('@/views/analysis/CaseAnalysis/index.vue'),
+              meta: { title: '案例数据' },
+              children: [
+                {
+                  path: 'case/list',
+                  name: 'CaseDataAnalysisList',
+                  component: () => import('@/views/analysis/CaseAnalysis/caseList/index.vue'),
+                  meta: { title: '案例列表' }
+                },
+                {
+                  path: 'case/list/:contentId',
+                  name: 'CaseDataAnalysisDetail',
+                  component: () => import('@/views/analysis/CaseAnalysis/caseAnalysisDetail/index.vue'),
+                  meta: { title: '案例数据', parentName: 'CaseDataAnalysisList' }
+                }
+              ]
+            }
+          ]
+
+        }
+      ]
+    },
+    {
       path: '/user',
       name: "/user",
       component: layout,
