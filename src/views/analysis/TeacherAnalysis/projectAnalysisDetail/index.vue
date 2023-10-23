@@ -1,10 +1,7 @@
 <template>
     <div class="container">
         <div>
-            <span class="title">案例使用次数：{{ caseAnalysis.usedTime }}</span>
-        </div>
-        <div>
-            <span class="title">案例参与人数：{{ caseAnalysis.numberOfParticipant }}</span>
+            <span class="title">项目参与人数：{{ caseAnalysis.numberOfParticipant }}</span>
         </div>
         <div id="casescore" class="chart">
         </div>
@@ -33,13 +30,13 @@ import { onBeforeMount } from 'vue';
 import { ElMessage } from 'element-plus';
 import * as echarts from 'echarts';
 
-import { GetCaseAnalysis } from '@/apis/analysis/getCaseAnalysis.js';
+import { GetProjectAnalysis } from '@/apis/analysis/getProjectAnalysis.js';
 import { onMounted } from 'vue';
 
 const route = useRoute()
 const routeName = route.name
 
-const contentId = route.params.contentId
+const projectId = route.params.projectId
 
 const caseAnalysis = ref({
     usedTime: null,
@@ -125,7 +122,7 @@ const initCaseTaskScoreChart = () => {
 
 
 onBeforeMount(() => {
-    GetCaseAnalysis(contentId).then(res => {
+    GetProjectAnalysis(projectId).then(res => {
         if (res.state == 200) {
             caseAnalysis.value = res.data
         } else {

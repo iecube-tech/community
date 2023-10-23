@@ -62,7 +62,7 @@
                 <span>项目数据</span>
             </template>
             <el-menu-item index="/analysis">案例数据</el-menu-item>
-            <el-menu-item index="">教师项目</el-menu-item>
+            <el-menu-item index="/analysis/teacher">教师项目</el-menu-item>
         </el-sub-menu>
     </el-menu>
 </template>

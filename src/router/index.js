@@ -338,6 +338,33 @@ const router = createRouter({
                   meta: { title: '案例数据', parentName: 'CaseDataAnalysisList' }
                 }
               ]
+            },
+            {
+              path: 'teacher',
+              name: 'TeacherProjectAnalysis',
+              redirect: '/analysis/teacher/list',
+              component: () => import('@/views/analysis/TeacherAnalysis/index.vue'),
+              meta: { title: '客户项目' },
+              children: [
+                {
+                  path: 'list',
+                  name: 'AnalysisTeacherList',
+                  component: () => import('@/views/analysis/TeacherAnalysis/teacherList/index.vue'),
+                  meta: { title: '教师列表' }
+                },
+                {
+                  path: 'list/:teacherId',
+                  name: 'AnalysisTeacherProjects',
+                  component: () => import('@/views/analysis/TeacherAnalysis/teacherProjects/index.vue'),
+                  meta: { title: '教师项目列表', parentName: 'AnalysisTeacherList' }
+                },
+                {
+                  path: 'list/:teacherId/:projectId',
+                  name: 'AnalysisProjectDetail',
+                  component: () => import('@/views/analysis/TeacherAnalysis/projectAnalysisDetail/index.vue'),
+                  meta: { title: '项目数据详情', parentName: 'AnalysisTeacherProjects' }
+                }
+              ]
             }
           ]
 
