@@ -10,7 +10,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/disable',
       name: "home",
       component: layout,
       meta: { title: '内容管理' },
@@ -215,6 +215,94 @@ const router = createRouter({
           ]
         },
 
+      ]
+    },
+    {
+      path: '/',
+      name: "contentManage",
+      component: layout,
+      meta: { title: '案例设计' },
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Layout/RefreshMain.vue'),
+          children: [
+            {
+              path: '',
+              name: 'contentList',
+              component: () => import('@/views/content/manage/contentList/index.vue'),
+              meta: { title: '案例列表' }
+            },
+            {
+              path: 'add',
+              name: 'contentAdd',
+              component: () => import('@/views/content/manage/contentModules/1-contentPreview/index.vue'),
+              meta: { title: '新建案例', parentName: 'contentList' }
+            },
+            {
+              path: 'checkList',
+              name: 'checkList',
+              component: () => import('@/views/content/manage/contentCheckList/index.vue'),
+              meta: { title: '案例审核', parentName: 'contentList' }
+            },
+            {
+              path: '/modules/:contentId',
+              name: 'contentModules',
+              component: () => import('@/views/content/manage/contentModules/index.vue'),
+              meta: { title: '案例拆解', parentName: 'contentList' },
+              children: [
+                {
+                  path: '',
+                  name: 'contentModulesList',
+                  component: () => import('@/views/content/manage/contentModules/contentModulesList/index.vue'),
+                  meta: { name: '案例设计' }
+                },
+                {
+                  path: 'preview',
+                  name: 'contentPreview',
+                  component: () => import('@/views/content/manage/contentModules/1-contentPreview/index.vue'),
+                  meta: { title: '基本信息', parentName: 'contentModulesList' }
+                },
+                {
+                  path: 'cover',
+                  name: 'contentSetCover',
+                  component: () => import('@/views/content/manage/contentModules/2-contentCover/index.vue'),
+                  meta: { title: '设置封面', parentName: 'contentModulesList' },
+                },
+                {
+                  path: 'points',
+                  name: 'contentPoints',
+                  component: () => import('@/views/content/manage/contentModules/3-contentPoints/index.vue'),
+                  meta: { title: '案例知识点', parentName: 'contentModulesList' }
+                },
+                {
+                  path: 'design',
+                  name: 'contentDesign',
+                  component: () => import('@/views/content/manage/contentModules/4-contenDesign/index.vue'),
+                  meta: { title: '案例教学设计', parentName: 'contentModulesList' }
+                },
+                {
+                  path: 'tasks',
+                  name: 'congtentTask',
+                  component: () => import('@/views/content/manage/contentModules/5-contentTask/index.vue'),
+                  meta: { title: '案例任务设计', parentName: 'contentModulesList' }
+                },
+                {
+                  path: 'guidance',
+                  name: 'contentGuidance',
+                  component: () => import('@/views/content/manage/contentModules/6-contentGuidance/index.vue'),
+                  meta: { title: '案例指导', parentName: 'contentModulesList' }
+                },
+                {
+                  path: 'pkg',
+                  name: 'contentPkgs',
+                  component: () => import('@/views/content/manage/contentModules/7-contentPkgs/index.vue'),
+                  meta: { title: '案例资源包', parentName: 'contentModulesList' }
+                }
+              ]
+            },
+          ]
+        }
       ]
     },
     {

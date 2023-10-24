@@ -11,12 +11,15 @@
                 <span>内容管理</span>
             </template>
             <!-- <el-menu-item index="/">内容预览</el-menu-item> -->
-            <el-menu-item index="/">案例管理</el-menu-item>
+            <!-- <el-menu-item index="/">案例管理</el-menu-item>
             <el-menu-item index="/npoints">知识点管理</el-menu-item>
-            <!-- <el-menu-item index="/design">教学设计</el-menu-item> -->
+            <el-menu-item index="/design">教学设计</el-menu-item>
             <el-menu-item index="/task">任务管理</el-menu-item>
             <el-menu-item index="/guidance">案例指导</el-menu-item>
-            <el-menu-item index="/pkg">案例资源包</el-menu-item>
+            <el-menu-item index="/pkg">案例资源包</el-menu-item> -->
+            <el-menu-item index="/">案例设计</el-menu-item>
+            <el-menu-item index="/add">新建案例</el-menu-item>
+            <el-menu-item index="/checkList">案例审核</el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="/client">
