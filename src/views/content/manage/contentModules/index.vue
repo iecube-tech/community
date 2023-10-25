@@ -44,7 +44,7 @@ const content = ref({
 const goBack = () => {
     router.push({
         name: <string>route.meta.parentName,
-        params: { contentId: <any>contentId }
+        params: { contentId: <any>contentId.value }
     })
 }
 

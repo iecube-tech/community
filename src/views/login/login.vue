@@ -2,7 +2,7 @@
     <div class="main">
         <el-card class="login">
             <el-row style="text-align: left">
-                <a href="/"><img class="logo" src="@/assets/images/iecubelogo.svg" alt=""></a>
+                <a href="/"><img class="logo" src="@/assets/images/产业案例教学资源库和过程评价系统LOGO.svg" alt=""></a>
             </el-row>
             <el-row style="margin-top: 45px;">
                 <h2>登 录</h2>

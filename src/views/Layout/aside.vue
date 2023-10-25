@@ -1,7 +1,7 @@
 <template>
     <el-menu default-active="/" class="el-menu" router>
         <el-menu-item index="/">
-            <img src="@/assets/images/iecubelogo.svg" alt="">
+            <img src="@/assets/images/产业案例教学资源库和过程评价系统LOGO.svg" alt="">
         </el-menu-item>
         <el-sub-menu index="/">
             <template #title>
@@ -19,7 +19,8 @@
             <el-menu-item index="/pkg">案例资源包</el-menu-item> -->
             <el-menu-item index="/">案例设计</el-menu-item>
             <el-menu-item index="/add">新建案例</el-menu-item>
-            <el-menu-item index="/checkList">案例审核</el-menu-item>
+            <el-menu-item index="/check">案例审核</el-menu-item>
+            <el-menu-item index="/npoints/cases">nPoints</el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="/client">

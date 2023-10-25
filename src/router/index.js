@@ -28,7 +28,7 @@ const router = createRouter({
               children: [
                 {
                   path: 'detail/:contentId',
-                  name: "ContentDetail",
+                  name: "ContentDetail1",
                   component: '',
                   meta: { title: '内容详情' }
                 },
@@ -237,13 +237,28 @@ const router = createRouter({
               path: 'add',
               name: 'contentAdd',
               component: () => import('@/views/content/manage/contentModules/1-contentPreview/index.vue'),
-              meta: { title: '新建案例', parentName: 'contentList' }
+              meta: { title: '新建案例' }
             },
             {
-              path: 'checkList',
-              name: 'checkList',
-              component: () => import('@/views/content/manage/contentCheckList/index.vue'),
-              meta: { title: '案例审核', parentName: 'contentList' }
+              path: 'check',
+              name: 'contentCheck',
+              redirect: '/check/list',
+              component: () => import('@/views/content/manage/preview/index.vue'),
+              meta: { title: '案例审核' },
+              children: [
+                {
+                  path: 'list',
+                  name: 'contentCheckList',
+                  component: () => import('@/views/content/manage/contentCheckList/index.vue'),
+                  meta: { title: '待审核列表' }
+                },
+                {
+                  path: 'list/:contentId',
+                  name: 'contentCheckDetail',
+                  component: () => import('@/views/content/manage/preview/resourceDetail/index.vue'),
+                  meta: { title: '案例详情', parentName: 'contentCheckList' },
+                }
+              ]
             },
             {
               path: '/modules/:contentId',

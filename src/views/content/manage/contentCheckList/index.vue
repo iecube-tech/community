@@ -26,12 +26,10 @@ import { NeedCheck } from '@/apis/contents/contentNeedCheck.js';
 
 
 const route = useRoute()
-const jumpToCheck = async (id) => {
-    await router.push({
-        name: '',
-        params: {
-            contentId: id,
-        }
+const jumpToCheck = (id) => {
+    router.push({
+        name: 'contentCheckDetail',
+        params: { contentId: id }
     })
 }
 
