@@ -10,9 +10,9 @@
                         <span v-if="route.name == 'addTagTemplates'"> 任务{{ route.params.num }}</span>
                     </span>
                     <div>
-                        <el-button v-if="routeName == 'npointModuleList'" type="primary" link
+                        <!-- <el-button v-if="routeName == 'npointModuleList'" type="primary" link
                             @click="toAdd()">添加</el-button>
-                        <el-divider v-if="routeName == 'npointModuleList'" direction="vertical" />
+                        <el-divider v-if="routeName == 'npointModuleList'" direction="vertical" /> -->
                         <el-button v-if="routeName !== 'npointModuleList'" type="primary" link
                             @click="toNodules()">功能模块管理</el-button>
                         <el-button v-if="routeName !== 'npointConcepteList'" type="primary" link

@@ -58,7 +58,7 @@ const contentForm = ref<content>({
     cover: '',
     completion: null,
     guidance: '',
-    third: 0
+    third: 1
 })
 
 const contentFormRules = reactive<FormRules<content>>({

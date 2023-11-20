@@ -20,6 +20,12 @@
             </li>
         </el-card>
     </div>
+    <div>
+        <el-row style="display: flex; flex-direction: row; justify-content: start; margin-top: 30px; margin-bottom: 30px;">
+            <span>添加功能模块</span>
+        </el-row>
+
+    </div>
 </template>
 
 <script setup lang="ts">

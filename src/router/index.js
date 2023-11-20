@@ -321,6 +321,109 @@ const router = createRouter({
       ]
     },
     {
+      path: '/course',
+      name: 'courseManage',
+      component: layout,
+      meta: { title: '课程设计' },
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/Layout/RefreshMain.vue'),
+          children: [
+            {
+              path: '',
+              name: 'courseList',
+              component: () => import('@/views/course/manage/courseList/index.vue'),
+              meta: { title: '课程列表' }
+            },
+            {
+              path: 'add',
+              name: 'courseAdd',
+              component: () => import('@/views/course/manage/courseModules/1-coursePreview/index.vue'),
+              meta: { title: '新建课程' }
+            },
+            {
+              path: 'check',
+              name: 'courseCheck',
+              redirect: '/check/list',
+              component: () => import('@/views/course/manage/preview/index.vue'),
+              meta: { title: '课程审核' },
+              children: [
+                {
+                  path: 'list',
+                  name: 'coursetCheckList',
+                  component: () => import('@/views/course/manage/courseCheckList/index.vue'),
+                  meta: { title: '待审核列表' }
+                },
+                {
+                  path: 'list/:contentId',
+                  name: 'courseCheckDetail',
+                  component: () => import('@/views/course/manage/preview/resourceDetail/index.vue'),
+                  meta: { title: '课程详情', parentName: 'courseCheckList' },
+                }
+              ]
+            },
+            {
+              path: '/course/modules/:contentId',
+              name: 'courseModules',
+              component: () => import('@/views/course/manage/courseModules/index.vue'),
+              meta: { title: '课程拆解', parentName: 'courseList' },
+              children: [
+                {
+                  path: '',
+                  name: 'courseModulesList',
+                  component: () => import('@/views/course/manage/courseModules/courseModulesList/index.vue'),
+                  meta: { name: '课程设计' }
+                },
+                {
+                  path: 'preview',
+                  name: 'coursePreview',
+                  component: () => import('@/views/course/manage/courseModules/1-coursePreview/index.vue'),
+                  meta: { title: '基本信息', parentName: 'courseModulesList' }
+                },
+                {
+                  path: 'cover',
+                  name: 'courseSetCover',
+                  component: () => import('@/views/course/manage/courseModules/2-courseCover/index.vue'),
+                  meta: { title: '设置封面', parentName: 'courseModulesList' },
+                },
+                {
+                  path: 'points',
+                  name: 'coursePoints',
+                  component: () => import('@/views/course/manage/courseModules/3-coursePoints/index.vue'),
+                  meta: { title: '课程知识点', parentName: 'courseModulesList' }
+                },
+                {
+                  path: 'design',
+                  name: 'courseDesign',
+                  component: () => import('@/views/course/manage/courseModules/4-courseDesign/index.vue'),
+                  meta: { title: '课程教学设计', parentName: 'courseModulesList' }
+                },
+                {
+                  path: 'tasks',
+                  name: 'courseTask',
+                  component: () => import('@/views/course/manage/courseModules/5-courseTask/index.vue'),
+                  meta: { title: '课程任务设计', parentName: 'courseModulesList' }
+                },
+                {
+                  path: 'guidance',
+                  name: 'courseGuidance',
+                  component: () => import('@/views/course/manage/courseModules/6-courseGuidance/index.vue'),
+                  meta: { title: '课程指导', parentName: 'courseModulesList' }
+                },
+                {
+                  path: 'pkg',
+                  name: 'coursePkgs',
+                  component: () => import('@/views/course/manage/courseModules/7-coursePkgs/index.vue'),
+                  meta: { title: '课程资源', parentName: 'courseModulesList' }
+                }
+              ]
+            },
+          ]
+        }
+      ]
+    },
+    {
       path: '/client',
       name: 'client',
       redirect: '/client/school',

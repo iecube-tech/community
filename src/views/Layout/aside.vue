@@ -1,5 +1,5 @@
 <template>
-    <el-menu default-active="/" class="el-menu" router>
+    <el-menu :default-active="'/' + route.fullPath.split('/')[1]" class="el-menu" router>
         <el-menu-item index="/">
             <img src="@/assets/images/产业案例教学资源库和过程评价系统LOGO.svg" alt="">
         </el-menu-item>
@@ -8,7 +8,7 @@
                 <el-icon>
                     <Document />
                 </el-icon>
-                <span>内容管理</span>
+                <span>案例管理</span>
             </template>
             <!-- <el-menu-item index="/">内容预览</el-menu-item> -->
             <!-- <el-menu-item index="/">案例管理</el-menu-item>
@@ -21,6 +21,17 @@
             <el-menu-item index="/add">新建案例</el-menu-item>
             <el-menu-item index="/check">案例审核</el-menu-item>
             <el-menu-item index="/npoints/cases">nPoints</el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="/course">
+            <template #title>
+                <el-icon>
+                    <Document />
+                </el-icon>
+                <span>课程管理</span>
+            </template>
+            <el-menu-item index="/course">课程设计</el-menu-item>
+            <el-menu-item index="/course/add">新建课程</el-menu-item>
+            <el-menu-item index="/course/check">课程审核</el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="/client">
@@ -73,6 +84,12 @@
 
 <script setup lang="ts">
 import { ref, reactive, toRefs, onMounted } from 'vue'
+import { useRoute } from 'vue-router';
+const route = useRoute();
+
+console.log(route)
+
+console.log('/' + route.fullPath.split('/')[1])
 
 </script>
 <style scoped lang="less"></style>
