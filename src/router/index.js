@@ -345,12 +345,12 @@ const router = createRouter({
             {
               path: 'check',
               name: 'courseCheck',
-              redirect: '/check/list',
+              // redirect: '/check/list',
               component: () => import('@/views/course/manage/preview/index.vue'),
               meta: { title: '课程审核' },
               children: [
                 {
-                  path: 'list',
+                  path: '',
                   name: 'coursetCheckList',
                   component: () => import('@/views/course/manage/courseCheckList/index.vue'),
                   meta: { title: '待审核列表' }
@@ -416,7 +416,16 @@ const router = createRouter({
                   name: 'coursePkgs',
                   component: () => import('@/views/course/manage/courseModules/7-coursePkgs/index.vue'),
                   meta: { title: '课程资源', parentName: 'courseModulesList' }
-                }
+                },
+                {
+                  path: 'question',
+                  name: 'courseQuestion',
+                  component: () => import('@/views/course/manage/courseModules/8-courseQuestionBank/index.vue'),
+                  meta: { title: '题库管理' },
+                  children: [
+
+                  ]
+                },
               ]
             },
           ]

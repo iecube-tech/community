@@ -20,6 +20,9 @@
     <div>
         <el-button v-if="completion >= 5" type="primary" link @click="toPkgs">课程资料</el-button>
     </div>
+    <div>
+        <el-button v-if="completion >= 10" type="primary" link @click="toQuestion">题库管理</el-button>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -75,6 +78,13 @@ const toGuidance = () => {
 const toPkgs = () => {
     router.push({
         name: 'coursePkgs',
+        params: { contentId: contentId.value }
+    })
+}
+
+const toQuestion = () => {
+    router.push({
+        name: 'courseQuestion',
         params: { contentId: contentId.value }
     })
 }

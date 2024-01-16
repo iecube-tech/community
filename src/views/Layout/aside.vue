@@ -17,21 +17,21 @@
             <el-menu-item index="/task">任务管理</el-menu-item>
             <el-menu-item index="/guidance">案例指导</el-menu-item>
             <el-menu-item index="/pkg">案例资源包</el-menu-item> -->
-            <el-menu-item index="/">案例设计</el-menu-item>
             <el-menu-item index="/add">新建案例</el-menu-item>
+            <el-menu-item index="/">案例设计</el-menu-item>
             <el-menu-item index="/check">案例审核</el-menu-item>
-            <el-menu-item index="/npoints/cases">nPoints</el-menu-item>
+            <!-- <el-menu-item index="/npoints/cases">nPoints</el-menu-item> -->
         </el-sub-menu>
         <el-sub-menu index="/course">
             <template #title>
                 <el-icon>
-                    <Document />
+                    <Collection />
                 </el-icon>
                 <span>课程管理</span>
             </template>
             <el-menu-item index="/course">课程设计</el-menu-item>
             <el-menu-item index="/course/add">新建课程</el-menu-item>
-            <el-menu-item index="/course/check">课程审核</el-menu-item>
+            <!-- <el-menu-item index="/course/check">课程审核</el-menu-item> -->
         </el-sub-menu>
 
         <el-sub-menu index="/client">
@@ -49,7 +49,7 @@
         <el-sub-menu index="/system">
             <template #title>
                 <el-icon>
-                    <Document />
+                    <Menu />
                 </el-icon>
                 <span>系统管理</span>
             </template>
@@ -72,7 +72,7 @@
         <el-sub-menu index="/analysis">
             <template #title>
                 <el-icon>
-                    <Menu />
+                    <Histogram />
                 </el-icon>
                 <span>项目数据</span>
             </template>
